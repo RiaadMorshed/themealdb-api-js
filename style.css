@@ -1,0 +1,14 @@
+.modal-img{
+    height: 300px;
+    width: 300px;
+    border-radius: 10px;
+    padding: 20px 0;
+}
+.modal-card{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.ingredient-list{
+    display: block;
+}

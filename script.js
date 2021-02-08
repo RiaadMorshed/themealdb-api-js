@@ -10,9 +10,7 @@ mealList.addEventListener('click', getRecipeDetails);
 
 function getMealList(){
     let searchInputTxt = document.getElementById('input-text').value.trim();
-
-    console.log("hello", searchInputTxt);
-    fetch(`https://www.themealdb.com/api/json/v1/1/search.php?f=${searchInputTxt}`)
+    fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${searchInputTxt}`)
     .then(response => response.json())
     .then(data => {
         let mealListHtml = "";
@@ -67,16 +65,19 @@ function setModal(foodName, indgredients, quantity, image){
         modalText += `<li> ${quantity[index]} ${element} </li>`
     })
     recipeDetails.innerHTML = `
-        <div class="card" style="width: 100%;">
-        <img src="${image}" class="card-img-top" alt="...">
+        <div class="card modal-card" style="width: 100%;">
+        <img src="${image}" class="card-img-top modal-img" alt="...">
         <div class="card-body">
         <h5 class="card-title">${foodName}</h5>
         <p class="card-text">
-            <ul>
+            <ol class="ingredient-list">
                 ${modalText}
-            </ul>
+            </ol>
         </p>
         </div>
+        <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>
+      </div>
     </div>
     `;
     modalBtn.click();
